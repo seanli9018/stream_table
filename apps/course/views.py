@@ -50,7 +50,7 @@ def course_order(request, course_id):
     order = CourseOrder.objects.create(course=course, buyer=request.user, 
     status=1, amount=course.price)
     context ={
-        'course': course
+        'course': course,
         'order': order
     }
     return render(request, 'course/course_order.html', context=context)
