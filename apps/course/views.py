@@ -51,6 +51,6 @@ def course_order(request, course_id):
     status=1, amount=course.price)
     context ={
         'course': course,
-        'order': order
+        'order': order,
     }
     return render(request, 'course/course_order.html', context=context)
