@@ -1,0 +1,58 @@
+{% extends 'cms/base.html' %}
+
+{% block title %}  
+  Category | ST CMS
+{% endblock title %}
+
+
+{% block head %}
+    <script src="{% static 'js/news_category.min.js' %}"></script>
+{% endblock head %}
+
+{% block content-header %}
+  <h1>Article Category</h1>
+{% endblock content-header %}
+
+{% block content %}
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-12">
+      <!-- general form elements -->
+      <div class="card card-primary">
+        <div class="card-header">
+          <button class="btn btn-light float-right" id="add-category">Add Category</button>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <div class="card-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Number</th>
+                    <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for category in categories %}
+                    <tr data-pk="{{ category.pk }}" data-name="{{ category.name }}">
+                        <td>{{category.name}}</td>
+                        <td>20</td>
+                        <td>
+                            <button class="btn btn-warning btn-xs edit-btn">Edit</button>
+                            <button class="btn btn-danger btn-xs delete-btn">Delete</button>
+                        </td>
+                    </tr>
+                {% endfor%}
+              </tbody>
+            </table>
+        </div>
+          <!-- /.card-body -->
+        {% comment %} <div class="card-footer">
+            <button type="submit" class="btn btn-primary float-right">Post Article</button>
+        </div> {% endcomment %}
+      <!-- /.card -->
+    </div>
+  </div>
+{% endblock content %}
+    

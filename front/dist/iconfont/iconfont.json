@@ -1,0 +1,65 @@
+{
+  "id": "1910097",
+  "name": "Streaming Table",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "9758631",
+      "name": "left arrow",
+      "font_class": "leftarrow",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "9758646",
+      "name": "right arrow",
+      "font_class": "rightarrow",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "128656",
+      "name": "cross",
+      "font_class": "cross",
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    },
+    {
+      "icon_id": "866464",
+      "name": "Twitter",
+      "font_class": "twitterlogo",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "1206114",
+      "name": "wechat",
+      "font_class": "wechat",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "1327506",
+      "name": "user",
+      "font_class": "user",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "8620067",
+      "name": "instagram",
+      "font_class": "instagram",
+      "unicode": "e7a8",
+      "unicode_decimal": 59304
+    },
+    {
+      "icon_id": "10562712",
+      "name": "Facebook, logo",
+      "font_class": "Facebooklogo",
+      "unicode": "e6b5",
+      "unicode_decimal": 59061
+    }
+  ]
+}

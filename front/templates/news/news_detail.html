@@ -1,0 +1,90 @@
+{% extends 'base/front_base.html' %}
+{% load news_filters %}
+
+{% block head %}
+    <script src="{% static 'js/news_detail.min.js'%}"></script>
+    <script src="{% static 'arttemplate/template-web.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'css/news/news_detail.min.css'%}">
+    <script id="comment-item" type="text/html">
+        {% verbatim %}
+            <li>
+                <div class="comment-info">
+                    <img src="../../dist/images/avatar.png" alt="" class="avatar">
+                    <span class="author">{{ comment.author.username }}</span>
+                    <span class="pub-time">{{ comment.pub_time|timeSince }}</span>
+                </div>
+                <p class="comment-content">
+                    {{ comment.content }}
+                </p>
+            </li>
+        {% endverbatim %}
+    </script>
+{% endblock head %}
+
+
+{% block title %}
+    ST | News Details
+{% endblock title %}
+
+
+{% block main %}
+    <div class="main">
+        <div class="wrapper">
+            <div class="main-content-wrapper">
+                <div class="news-wrapper">
+                    <h1 class="title">
+                        {{news.title}}
+                    </h1>
+                    <div class="news-info">
+                        <div class="info-group">
+                            <span class="author" >{{news.author.username}}</span>
+                            <span class="pub-time">{{news.pub_time|time_since}}</span>
+                            <span class="category">{{news.category.name}}</span>
+                        </div>
+                        <div class="share-group">
+                            <span class="share-items">Share on:</span>
+                            <a href="#" class="facebook share-items"><i class="iconfont icon-Facebooklogo"></i></a>
+                            <a href="#" class="twitter share-items"><i class="iconfont icon-twitterlogo"></i></a>
+                            <a class="wechat share-items"><i class="iconfont icon-wechat"></i></a>
+                        </div>
+                    </div>
+                    <article class="article">
+                        {{news.content|safe}}
+                    </article>
+                </div>
+                <div class="comment-wrapper">
+                    <h3 class="title">Comments</h3>
+                    <textarea name="comment" class="comment-textarea loggedin-textarea" 
+                    placeholder="Please Log in to leave a comment." cols="40" rows="30" ></textarea>
+                    <div class="submit-btn-group" news_id="{{news.id}}">
+                        <button class="submit-btn" id="comment-btn">Submit</button>
+                    </div>
+                    <ul class="comment-list">
+                        {% for comment in news.comments.all %}
+                            <li>
+                                <div class="comment-info">
+                                    <img src="{% static 'images/avatar.png'%}" alt="" class="avatar">
+                                    <span class="author">{{comment.author.username}}</span>
+                                    <span class="pub-time">{{comment.pub_time|time_since}}</span>
+                                </div>
+                                <p class="comment-content">
+                                    {{comment.content}}
+                                </p>
+                            </li>
+                        {% endfor %}
+                            
+                    </ul>
+                    
+                </div>
+            </div>
+            {% include 'common/sidebar.html' %}
+        </div>
+    </div>
+{% endblock main %}
+
+
+    
+    
+    
+
+    

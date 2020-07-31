@@ -1,0 +1,59 @@
+{% extends 'base/front_base.html' %}
+
+
+{% block head %} 
+    <link rel="stylesheet" href="{% static 'css/course/course_index.min.css'%}">
+{% endblock head %}
+
+
+{% block title %}
+    ST | Course Streaming
+{% endblock title %}
+
+
+{% block main %}
+    <div class="main">
+        <div class="course-nav">
+            <div class="nav-container">
+                <h3 class="nav-title">Streaming Table</h3>
+                <ul class="nav-list">
+                    <li class="active"><a href="#">Recent Courses</a></li>
+                    <li><a href="#">Treading Courses</a></li>
+                    <li><a href="#">Case Study</a></li>
+                    <li><a href="#">Knowledge</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrapper">
+            <ul class="course-list">
+                {% for course in courses %}
+                <li>
+                    <a href="{% url 'course:course_detail' course_id=course.pk %}">
+                        <div class="thumbnail-group">
+                            <img src="{{ course.cover_url }}" alt="{{ course.title }}" style="height:123px">
+                        </div>
+                        <div class="course-info">
+                            <p class="title">{{ course.title }}</p>
+                            <p class="author">{{ course.teacher.username }}</p>
+                            <p class="price-group">
+                                
+                                {% if course.price > 0 %}
+                                <span class="pay">$ {{ course.price }}</span>
+                                {% else %}
+                                <span class="free">Free Course</span>
+                                {% endif %}
+                                    
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}                
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+{% endblock main %}
+    
+    

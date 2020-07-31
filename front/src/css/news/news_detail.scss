@@ -1,0 +1,146 @@
+@import "../common/init.scss";
+@import "../common/constants.scss";
+@import "../common/header.scss";
+@import "../common/body.scss";
+@import "../common/footer.scss";
+
+.main{
+    .wrapper{
+        .main-content-wrapper{
+            padding: 20px;
+            box-sizing: border-box;
+            .news-wrapper{
+
+                .title{
+                    font-size: 20px;
+                    color: $titleColorDark;
+                }
+
+                .news-info{
+                    overflow: hidden;
+                    margin-top: 20px;
+                    color: $metaColorDark;
+                    font-size: 14px;
+                    line-height:25px;
+
+                    .info-group{
+                        float: left;
+
+                        .pub-time{
+                            margin-left: 15px;
+                        }
+
+                        .category{
+                            margin-left: 15px;
+                            background-color: $darkBC;
+                            color: $titleColor;
+                            border-radius: 5px;
+                            padding: 2px 5px;
+                        }
+                    }
+
+                    .share-group{
+                        float:right;
+                        overflow: hidden;
+                        
+                        .share-items{
+                            float: left;
+                        }
+
+                        a{
+                            color: $metaColorDark;
+                            margin: 0px 2px;
+                        }      
+                    }
+                }
+
+                .article{
+                    margin: 20px 0;
+                    color: $contentColorDark;
+                }
+            }
+
+            .comment-wrapper{
+                border-top: 1px solid $borderColorDark;
+                padding-top: 20px;
+
+                .title{
+                    color: $contentColorDark;
+                    font-size: 16px;
+                }
+                .comment-textarea{
+                    margin-top: 10px;
+                    width:100%;
+                    resize: none;
+                    outline: none;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    font-size: 14px;
+                    padding: 6px 10px;
+                    box-sizing: border-box;
+                }
+                
+                .nologin-textarea{
+                    height: 40px;
+                    line-height: 26px;
+                }
+
+                .loggedin-textarea{
+                    height: 80px;
+                }
+                .submit-btn-group{
+                    margin-top: 10px;
+                    text-align: right;
+
+                    .submit-btn{
+                        padding: 5px 15px;
+                        background-color: $darkBC;
+                        border: none;
+                        color: white;
+                        outline: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    }
+                }
+
+                .comment-list{
+                    margin-top: 20px;
+                    font-size: 16px;
+                    color: $contentColorDark;
+
+                    li{
+                        border-bottom: 1px solid $borderColorDark;
+                        padding-bottom: 20px;
+                        margin-bottom: 30px;
+                        
+                        .comment-info{
+                            height: 40px;
+                            line-height: 40px;
+
+                            overflow: hidden;
+                            .avatar{
+                                float: left;
+                                border-radius: 50%;
+                                max-width: 5%;
+                            }
+
+                            .author{
+                                float: left;
+                                margin-left:10px;
+                            }
+
+                            .pub-time{
+                                float: right;
+                            }
+                        }
+
+                        .comment-content{
+                            margin-left: 42px;
+                            margin-top: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

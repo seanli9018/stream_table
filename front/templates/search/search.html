@@ -1,0 +1,89 @@
+{% extends 'base/front_base.html' %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/search/search.min.css'%}">
+{% endblock head %}
+
+
+{% block title %}
+    ST | Search
+{% endblock title %}
+
+
+{% block main %}
+    <div class="main">
+        <div class="wrapper">
+            <div class="main-content-wrapper">
+                <div class="search-bar">
+                    <div class="search-box">
+                        <input type="text" name="search" placeholder="Please enter search keywords">
+                    </div>
+                    <div class="search-btn">
+                        <button type="submit">Search</button>
+                    </div>
+                </div>
+                <ul class="list-group">
+                    <li>
+                        <div class="thumbnail-group">
+                            <a href=""><img src="{% static 'images/thumbnail1.jpg'%}" alt=""></a>
+                        </div>
+                        <div class="news-group">
+                            <p class="title">
+                                <a href="#">Global Coronavirus Deaths Near 500,000 As Number Of Cases Surpasses 10 Million</a>
+                            </p>
+                            <p class="desc">
+                                The world is about to hit a devastating milestone: half a million people dead, killed by the coronavirus pandemic that has swept the planet.
+                            </p>
+                            <p class="more">
+                                <span class="category">Recent News</span>
+                                <span class="pub-time">1hr ago</span>
+                                <span class="author">Matthew S. Schwartz</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="thumbnail-group">
+                            <a href=""><img src="{% static 'images/thumbnail2.jpg'%}" alt=""></a>
+                        </div>
+                        <div class="news-group">
+                            <p class="title">
+                                <a href="#">Three models are available for you to choose fromーーSony Wireless Noise-Canceling Headphones</a>
+                            </p>
+                            <p class="desc">
+                                If you are a business person who travels in cities around the world and also love music, the Sony WH-1000XM2 Wireless Noise-Canceling Headphones will become your favorite accessory.
+                            </p>
+                            <p class="more">
+                                <span class="category">In-Depth</span>
+                                <span class="pub-time">2hr ago</span>
+                                <span class="author">Sean Li</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="thumbnail-group">
+                            <a href=""><img src="{% static 'images/thumbnail1.jpg'%}" alt=""></a>
+                        </div>
+                        <div class="news-group">
+                            <p class="title">
+                                <a href="#">Global Coronavirus Deaths Near 500,000 As Number Of Cases Surpasses 10 Million</a>
+                            </p>
+                            <p class="desc">
+                                The world is about to hit a devastating milestone: half a million people dead, killed by the coronavirus pandemic that has swept the planet.
+                            </p>
+                            <p class="more">
+                                <span class="category">Recent News</span>
+                                <span class="pub-time">1hr ago</span>
+                                <span class="author">Matthew S. Schwartz</span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            {% include 'common/sidebar.html' %}
+        </div>
+    </div>
+{% endblock main %}
+    
+    
+    

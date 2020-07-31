@@ -1,0 +1,85 @@
+{% extends 'base/front_base.html' %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/premium/premium_index.min.css'%}">
+{% endblock head %}
+
+
+{% block title %}
+    ST | Premium Courses
+{% endblock title %}
+    
+
+{% block main %}
+    <div class="main">
+        <div class="wrapper">
+            <div class="main-content-wrapper">
+                <div class="banner-image">
+                    <img src="{%static 'images/product1.jpg'%}" alt="">
+                </div>
+                <div class="content">
+                    <ul class="premium-list">
+                        <li>
+                            <a href="#">
+                                <div class="left-thumbnail">
+                                    <img src="{%static 'images/premium_thumbnail.jpg'%}" alt="">
+                                </div>
+                                <div class="right-info">
+                                    <p class="title">
+                                        How to capture lights with lens?
+                                    </p>
+                                    <p class="desc">
+                                        Using your lens to capture light correctly with considering len's specifics.
+                                    </p>
+                                    <span class="price">
+                                        $89.99
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="left-thumbnail">
+                                    <img src="{%static 'images/premium_thumbnail.jpg'%}" alt="">
+                                </div>
+                                <div class="right-info">
+                                    <p class="title">
+                                        How to capture lights with lens?
+                                    </p>
+                                    <p class="desc">
+                                        Using your lens to capture light correctly with considering len's specifics.
+                                    </p>
+                                    <span class="price">
+                                        $89.99
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="left-thumbnail">
+                                    <img src="{%static 'images/premium_thumbnail.jpg'%}" alt="">
+                                </div>
+                                <div class="right-info">
+                                    <p class="title">
+                                        How to capture lights with lens?
+                                    </p>
+                                    <p class="desc">
+                                        Using your lens to capture light correctly with considering len's specifics.
+                                    </p>
+                                    <span class="price">
+                                        $89.99
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {% include 'common/sidebar.html' %}
+        </div>
+    </div>
+{% endblock main %}
+    
+    

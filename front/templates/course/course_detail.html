@@ -1,0 +1,147 @@
+{% extends 'base/front_base.html' %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/course/course_detail.min.css'%}">
+    <script src="{% static 'videojs/video.min.js' %}"></script>
+    <script src="{% static 'videojs/videojs-contrib-hls.min.js' %}"></script>
+    <script src="{% static 'videojs/videojs-contrib-quality-levels.min.js' %}"></script>
+    <script type="text/javascript" src="https://cdn.bdstatic.com/jwplayer/latest/cyberplayer.js"></script>
+    <script src="{% static 'js/course_detail.min.js' %}"></script>
+{% endblock head %}
+
+
+{% block title %}
+    ST | Course Video
+{% endblock title %}
+
+
+{% block main %}
+    <div class="main">
+        <div class="course-nav">
+            <div class="nav-container">
+                <h3 class="nav-title">Streaming Table</h3>
+                <ul class="nav-list">
+                    <li class="active"><a href="#">Recent Courses</a></li>
+                    <li><a href="#">Treading Courses</a></li>
+                    <li><a href="#">Case Study</a></li>
+                    <li><a href="#">Knowledge</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="course-wrapper">
+                <div class="course-info">
+                    <p class="course-title">{{ course.title }}</p>
+                    <div class="price-group">
+                        <div class="share-group">
+                            <span class="title">Share on:</span>
+                            <a href="#" class="facebook share-items"><i class="iconfont icon-Facebooklogo"></i></a>
+                            <a href="#" class="twitter share-items"><i class="iconfont icon-twitterlogo"></i></a>
+                            <a class="wechat share-items"><i class="iconfont icon-wechat"></i></a>
+                        </div>
+                        <div class="buy-group">
+                            <!--<span class="price pay">$59.99</span>
+                            <a href="" class="buy-btn">Join Course</a>-->
+                            {% if course.price > 0 %}
+                            <span class="price pay">$ {{ course.price }}</span>
+                            <a href="{% url 'course:course_order' course_id=course.pk %}" class="buy-btn">Join Course</a>
+                            {% else %}
+                            <span class="price free">Free</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="video-group">
+                    <span hidden id="video-info" data-video-url="{{ course.video_url }}" data-cover-url="{{ course.cover_url }}"></span>
+                    <div id="playercontainer">
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-wrapper">
+                <div class="course-left">
+                    <div class="item-group">
+                        <p class="item-title">Lecturer</p>
+                        <div class="teacher-profile">
+                            <div class="avatar-group">
+                                <img src="{{ course.teacher.avatar }}" alt="avatar" class="avatar">                                    
+                            </div>
+                            <div class="teacher-info">
+                                    <p>{{ course.teacher.username }}</p>
+                            </div>
+                        </div>
+                        <p class="item-content"> 
+                        {{ course.teacher.profile }}
+                        </p>
+                    </div>
+                    <div class="item-group">
+                        <p class="item-title">Course Description</p>
+                        <p class="item-content">
+                        {{ course.profile|safe }}
+                        </p>
+                    </div>
+                    <div class="item-group">
+                        <p class="item-title">Course Outline</p>
+                        <p class="item-content"> Include these words in your bio. 
+                        </p>
+                    </div>
+                    <div class="item-group">
+                        <p class="item-title">Course for</p>
+                        <p class="item-content"> if your research focuses on recent changes in ritual music
+performed by women of minority groups in South Asia, then your key terms might include:
+gender, globalization, modernity, ethnic minority, indigeneity, performance, ritual, and
+embodied epistemology. Include these words in your bio. 
+                        </p>
+                    </div>
+                    <div class="item-group">
+                        <p class="item-title">Help Center</p>
+                        <p class="item-content">Your key terms might include:
+gender, globalization, modernity, ethnic minority, indigeneity, performance, ritual, and
+embodied epistemology. Include these words in your bio. 
+                        </p>
+                    </div>
+                    <div class="item-group">
+                        <p class="item-title">About Streaming Table</p>
+                        <p class="item-content"> Sean Li was born in Jan 1990. Graduated from Benedictine University in MIS. Basic information: Include who you are, what you do, where you’ve worked and studied,
+and why you’re worth noticing.
+                        </p>
+                    </div>
+                </div>
+                <div class="recommend-right">
+                    <p class="item-title">Recommend Course</p>
+                    <ul class="course-list">
+                        <li>
+                            <div class="info">
+                                <p class="title">
+                                    How to capture light?
+                                </p>
+                                <p class="teacher">
+                                    Sean Li
+                                </p>
+                            </div>
+                            <div class="thumbnail">
+                                <img src="{% static 'images/thumbnail2.jpg'%}" alt="">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info">
+                                <p class="title">
+                                    How to capture light?
+                                </p>
+                                <p class="teacher">
+                                    Sean Li
+                                </p>
+                            </div>
+                            <div class="thumbnail">
+                                <img src="{% static 'images/thumbnail2.jpg'%}" alt="">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}
+    
+    
+    

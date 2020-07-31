@@ -1,0 +1,167 @@
+@import "./constants.scss";
+
+.main{
+    width:100%;
+    margin-top: $navHeight;
+    margin-bottom: 20px;
+    
+    .wrapper{
+        width:$pageWidth;
+        margin: 0 auto;
+        overflow: hidden;
+        
+        .main-content-wrapper{
+            float: left;
+            width: $mainBoxWidth;
+            margin-top: 20px;
+        }
+        
+        .sidebar-wrapper{
+            float: right;
+            width: $sidebarWidth;
+            margin-top: 20px;
+            padding-bottom: 20px;
+            background-color: $lightBC;
+
+            .title-group{
+                overflow: hidden;
+                padding: 20px;
+
+                .title{
+                    color: $titleColor;
+                    font-size: 18px;
+                }
+
+                a{
+                    color: $contentColor;
+                    float: right;
+                    font-size: 14px;
+                    text-decoration-line: underline;
+                    margin-top: 3px;
+                }
+            }
+
+            .advert-group{
+                img{
+                    width: 100%;
+                }
+            }
+
+            .subscribe-group{
+                padding: 0 20px;
+                overflow: hidden;
+
+                .left-group{
+                    float: left;
+                    width: 150px;
+
+                    li{
+                        width: 100%;
+                        height: 41px;
+                        background-image: url("/static/images/social.png");
+                        background-repeat: no-repeat;
+                        background-size: 27%;
+                        margin-bottom: 20px;
+                        //background-color: green;
+                        line-height: 41px;
+
+                        a{
+                            margin-left: 45px;
+                            color: $metaColor;
+
+                            &:hover{
+                                color: $contentColor;
+                            }
+                        }
+                    }
+
+                    .facebook{
+                        background-position: 0 1px;
+                    }
+
+                    .twitter{
+                        background-position-y: -40px;
+                    }
+
+                    .instagram{
+                        background-position-y: -81px;
+                    }
+                }
+
+                .right-group{
+                    float: right;
+                    width: $sidebarWidth - 150px - 40px;
+                    height: 183px;
+                    //background-color: red;
+
+                    .qrcode{
+                        background-image: url("/static/images/qrcode.jpg");
+                        background-repeat: no-repeat;
+                        background-size: 100%;
+                        height: 90px;
+                    }
+
+                    p{
+                        font-size: 14px;
+                        color: $contentColor;
+                        text-align: center;
+                        margin-top: 15px;
+                    }
+                }
+            }
+
+            .trending-list-group{
+                overflow: hidden;
+                padding: 0 20px;
+                
+                li{
+                    overflow: hidden;
+                    border-bottom: 1px solid $metaColor;
+                    padding: 10px 0;
+                    box-sizing: border-box;
+                    //background-color: #fff;
+                }
+                .left{
+                    float: left;
+                    width: 180px;
+
+                    .title{
+                        font-size: 14px;
+                        
+                        a{
+                            color: $contentColor;
+                        }
+                    }
+
+                    .more{
+                        font-size: 12px;
+                        margin-top: 10px;
+                        overflow: hidden;
+
+                        .category{
+                            color: $contentColor;
+                            float: left;
+                        }
+
+                        .pub-time{
+                            color: $metaColor;
+                            float:right;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+
+                
+                .right{
+                    float: right;
+                    width: $sidebarWidth - 150px - 70px;
+                    //background-color: #fff;
+
+                    img{
+                        width: 60px;
+                    }
+                }
+            }
+        }
+    }
+}

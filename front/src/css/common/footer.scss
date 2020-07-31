@@ -1,0 +1,135 @@
+@import "./constants.scss";
+
+.footer{
+    font-size: 14px;
+    //overflow: hidden;
+
+    .top-group{
+        background-color: $footerBC;
+        height: 90px;
+
+        .top-inner-group{
+            width: $pageWidth;
+            margin: 0 auto;
+            //overflow: hidden;
+            position: relative;
+
+            .logo-box{
+                width: 25px;
+                height: 20px;
+                margin-top: ((80px - 20px) / 2);
+                margin-left: 20px;
+                float: left;
+                background-image: url("/static/images/st_logo.png");
+                background-repeat: no-repeat;
+            }
+
+            .detail-box{
+                float: right;
+                width: $pageWidth - 65px;
+                //background-color: #fff;
+                padding-left: 80px;
+                box-sizing: border-box;
+
+                .line1{
+                    overflow: hidden;
+                    margin-top: 23px;
+                    height: 20px;
+                    line-height: 20px;
+
+                    .links{
+                        float: left;
+
+                        li{
+                            float: left;
+                            border-right: 1px solid $borderColor;
+                            margin-right: 20px;
+                            padding-right: 20px;
+
+                            &:last-of-type{
+                                border-right:none;
+                            }
+
+                            a{
+                                color: $contentColor;
+
+                                &:hover{
+                                    color: $titleColor;
+                                }
+                            }
+                        }
+                    }
+                    .subscribe{
+                        float: left;
+                        overflow: hidden;
+                        margin-left: 60px;
+                        color: $metaColor;
+                        
+                        .social-group{
+                            float: left;
+                            overflow: hidden;
+    
+                            li{
+                                float: left;
+                                margin-left: 10px;
+                                margin-top: -2px;
+                                
+                                i{
+                                    font-size: 18px;
+                                }
+                            }
+
+                            .wechat{
+                                //background-color: #333333;
+                                cursor: pointer;
+                                &:hover .qrcode{
+                                    display: block;
+                                }
+                                .qrcode{
+                                    display: none;
+                                    width: 80px;
+                                    height: 80px;
+                                    background-repeat: no-repeat;
+                                    background-image: url("/static/images/qrcode.jpg");
+                                    background-size: 100%;
+                                    position: absolute;
+                                    float: left;
+                                    top: -70px;
+                                    left: 685px;
+                                }
+                            }
+                        }
+
+                        span{
+                            float: left;
+                        }
+                    }
+
+                    
+                }
+
+                .line2{
+                    color: $metaColor;
+                    padding-top: 5px;
+
+                    .address{
+                        float: left;
+                    }
+
+                    .contact{
+                        float: left;
+                        margin-left: 107px;
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom-group{
+        background-color: black;
+        height: 50px;
+        color: $metaColor;
+        line-height: 50px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,82 @@
+@import "../common/init.scss";
+@import "../common/constants.scss";
+@import "../common/header.scss";
+@import "../common/body.scss";
+@import "../common/footer.scss";
+
+body{
+    background-color: $darkBC;
+}
+
+.main{
+    .wrapper{
+        .main-content-wrapper{
+            //background-color: green;
+
+            .banner-image{
+                width: 100%;
+
+                img{
+                    width: 100%;
+                }
+            }
+
+            .content{
+                padding: 20px;
+
+                .premium-list{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+
+                    li{
+                        width: 315px;
+                        margin-top: 20px;
+                        height: 120px;
+                        background-color: $maxLightBC;
+                        overflow: hidden;
+
+                        &:hover{
+                            box-shadow: 0 5px 5px rgb(24, 24, 24);
+                        }
+
+                        a{
+                            .left-thumbnail{
+                                float: left;
+                            }
+
+                            .right-info{
+                                float:right;
+                                width: 315px - 80px;
+                                height: 120px;
+                                padding: 10px;
+                                box-sizing: border-box;
+                                position: relative;
+
+                                .title{
+                                    font-size: 16px;
+                                    color: $contentColorDark;
+                                }
+
+                                .desc{
+                                    font-size: 14px;
+                                    color: $metaColorDark;
+                                    margin-top: 10px;
+                                }
+
+                                .price{
+                                    position: absolute;
+                                    right: 10px;
+                                    bottom: 10px;
+                                    color: $payColor;
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

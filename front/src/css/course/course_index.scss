@@ -1,0 +1,84 @@
+@import "../common/init.scss";
+@import "../common/constants.scss";
+@import "../common/header.scss";
+@import "../common/body.scss";
+@import "../common/footer.scss";
+@import "./course_nav.scss";
+
+body{
+    background-color: $darkBC;
+}
+
+.main{
+    .course-list{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+        li{
+            $courseItemHeight: 213px;
+            $thumbnailHeight: 123px;
+            width: 230px;
+            height: $courseItemHeight;
+            margin-bottom: 20px;
+
+            a{
+                display: inline-block;
+                width: 230px;
+                height: $courseItemHeight;
+                background-color: $maxLightBC;
+                height: $courseItemHeight;
+
+                &:hover{
+                    box-shadow: 0 8px 10px rgb(24, 24, 24);
+                }
+                    .thumbnail-group{
+                    width: 100%;
+                    //background-color: green;
+                    height: $thumbnailHeight;
+
+                    img{
+                        width:100%;
+                        max-width: 230px;
+                        //background-color: yellow;
+                    }
+                }
+
+                .course-info{
+                    //background-color: yellow;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    height: $courseItemHeight - $thumbnailHeight;
+                    position: relative;
+
+                    .title{
+                        color: $titleColorDark;
+                    }
+
+                    .author{
+                        color: $metaColorDark;
+                        margin-top: 10px;
+                    }
+
+                    .price-group{
+                        position: absolute;
+                        left: 10px;
+                        right: 10px;
+                        bottom: 10px;
+                        text-align: right;
+
+                        .free{
+                            color: $freeColor;
+                        }
+
+                        .pay{
+                            color: $payColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

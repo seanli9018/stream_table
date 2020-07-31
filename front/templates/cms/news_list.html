@@ -1,0 +1,176 @@
+{% extends 'cms/base.html' %}
+{% load news_filters %}
+
+{% block title %}
+    Article Management
+{% endblock title %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/cms/news_list.min.css' %}">
+    <link rel="stylesheet" href="{% static 'adminlte/plugins/datepicker/bootstrap-datepicker.min.css' %}">
+    <script src="{% static 'adminlte/plugins/datepicker/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'js/news_list.min.js' %}"></script>
+{% endblock head %}
+
+
+{% block content-header %}
+    <h1>Article Management</h1>
+{% endblock content-header %}
+
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <form action="{% url 'cms:news_list' %}"  class="form-inline">
+                        <div class="form-group date-group">
+                            <label>Date range: </label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="far fa-calendar-alt"></i>
+                                    </span>
+                                </div>
+                                {% if start%}
+                                    <input type="text" name="start" class="form-control float-right" id="start-picker" value="{{start}}" placeholder="Start Date">
+                                {% else %}
+                                    <input type="text" name="start" class="form-control float-right" id="start-picker" placeholder="Start Date">
+                                {% endif %}
+                            </div>
+                            <span>-</span>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="far fa-calendar-alt"></i>
+                                    </span>
+                                </div>
+                                {% if end %}
+                                    <input type="text" name="end" class="form-control float-right" id="end-picker" value="{{end}}" placeholder="End Date">
+                                {% else %}
+                                    <input type="text" name="end" class="form-control float-right" id="end-picker" placeholder="End Date">
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="form-group title-group">
+                            <label for="title-input">Title: </label>
+                            {% if title %}
+                                <input type="text" class="form-control" name="title" id="title-input" value="{{title}}" placeholder="Title">
+                            {% else %}
+                                <input type="text" class="form-control" name="title" id="title-input" placeholder="Title">
+                            {% endif %}
+                        </div>
+                        <div class="form-group category-group">
+                            <label for="category-input">Category: </label>
+                            <select type="text" class="form-control" name="category" id="category-input">
+                                {% if category_id == 0 %}
+                                    <option value="0" selected>All category</option>
+                                {% else %}
+                                    <option value="0">All category</option>
+                                {% endif %}                                
+                                {% for category in categories %}
+                                    {% if category_id == category.id %}
+                                        <option value="{{category.id}}" selected>{{category.name}}</option>
+                                    {% else %}
+                                        <option value="{{category.id}}">{{category.name}}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-dark">Apply</button>
+                        </div>
+                        <div class="form-group clear-btn">
+                            <a href="{% url 'cms:news_list' %}" class="btn btn-outline-light">Clear</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Publish Time</th>
+                                <th>Author</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for news in newses%}
+                                <tr>
+                                    <td><a href="{% url 'news:news_detail' news_id=news.pk %}" target="_blank">{{ news.title }}</a></td>
+                                    <td>{{ news.category.name }}</td>
+                                    <td>{{ news.pub_time|time_format }}</td>
+                                    <td>{{ news.author.username }}</td>
+                                    <td>
+                                        <a href="{% url 'cms:edit_news' %}?news_id={{ news.pk }}" class="btn btn-primary btn-xs">Edit</a>
+                                        <a href="javascript:void(0)" class="btn btn-danger btn-xs delete-btn" data-news-id="{{ news.pk }}" >Delete</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <nav aria-label="Page navigation example ">
+                        <ul class="pagination justify-content-end">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="{% url 'cms:news_list'%}?p={{page_obj.previous_page_number}}{{url_query}}" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="javascript:void(0)" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            
+                            {% if left_has_more %}
+                                <li class="page-item"><a class="page-link" href="{% url 'cms:news_list' %}?p=1{{url_query}}">1</a></li>
+                                <li class="page-item"><a class="page-link" href="javascript:viod(0);">...</a></li>
+                            {% endif %}
+                                
+                            <!--left pages-->
+                            {% for left_page in left_pages %}
+                                <li class="page-item"><a class="page-link" href="{% url 'cms:news_list' %}?p={{left_page}}{{url_query}}">{{left_page}}</a></li>
+                            {% endfor %}
+                            <!--current page-->
+                                <li class="page-item active"><a class="page-link" href="{% url 'cms:news_list' %}?p={{current_page}}{{url_query}}">{{current_page}}</a></li>
+                            <!--right pages-->
+                            {% for right_page in right_pages %}
+                                <li class="page-item"><a class="page-link" href="{% url 'cms:news_list' %}?p={{right_page}}{{url_query}}">{{right_page}}</a></li>
+                            {% endfor %}
+                            {% if right_has_more %}
+                                <li class="page-item"><a class="page-link" href="javascript:viod(0);">...</a></li>
+                                <li class="page-item"><a class="page-link" href="{% url 'cms:news_list' %}?p={{num_pages}}{{url_query}}">{{num_pages}}</a></li>
+                            {% endif %}
+                            {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="{% url 'cms:news_list' %}?p={{page_obj.next_page_number}}{{url_query}}" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a> 
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="javascript:void(0)" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a> 
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    

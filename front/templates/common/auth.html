@@ -1,0 +1,83 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../dist/css/common/auth.min.css">
+        <link rel="stylesheet" href="../../dist/iconfont/iconfont.css">
+        <script src="../../dist/js/jquery-3.3.1.min.js"></script>
+        <script src="../../dist/js/auth.min.js"></script>
+        <title>Auth</title>
+    </head>
+    <body>
+        <button id="btn">Sign in/New user</button>
+        <div class="mask-wrapper">
+            <div class="auth-wrapper">
+                <div class="close-wrapper">
+                    <span id="close-btn"><i class="iconfont icon-cross"></i></span>
+                </div>
+                <div class="auth-inner-wrapper">
+                    <div class="scroll-wrapper">
+                        <div class="signin-group auth-group">
+                            <div class="top-group">
+                                <span class="title">Please sign in</span>
+                                <a href="javascript: void(0);" class="switch">New User? ></a>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="email" placeholder="Please enter your email">
+                                </div>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" name="password" placeholder="Please enter your password">
+                                </div>
+                                <div class="input-group">
+                                    <label><input type="checkbox" name="remember" value="1">Keep me signin</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="submit" class="submit-btn" value="Sign In">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="signup-group auth-group">
+                             <div class="top-group">
+                                <span class="title">Please sign up</span>
+                                <a href="javascript: void(0);" class="switch">Already have account? ></a>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="email" placeholder="Email">
+                                </div>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="username" placeholder="Username">
+                                </div>
+                                <div class="input-group">
+                                    <div class="short-input-group">
+                                        <input type="text" class="form-control" name="img_capture" placeholder="Image Verification Code">
+                                    </div>
+                                    <div class="input-group-addon">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="password1" placeholder="Password">
+                                </div>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="password2" placeholder="Confirm Password">
+                                </div>
+                                <div class="input-group">
+                                    <div class="short-input-group">
+                                        <input type="text" class="form-control" name="email_capture" placeholder="Enter email verification code">
+                                    </div>
+                                    <div class="input-group-addon">
+                                        <span class="email-capture-btn">Get Code</span>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <input type="submit" class="submit-btn" value="Register">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

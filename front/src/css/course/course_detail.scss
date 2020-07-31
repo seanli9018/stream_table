@@ -1,0 +1,177 @@
+@import "../common/init.scss";
+@import "../common/constants.scss";
+@import "../common/header.scss";
+@import "../common/body.scss";
+@import "../common/footer.scss";
+@import "./course_nav.scss";
+
+body{
+    background-color: $darkBC;
+}
+
+.main{
+    .wrapper{        
+        .course-wrapper{
+            background-color: #e7e7e7;
+            margin-top: 20px;
+
+            .course-info{
+                padding: 20px;
+                //background-color: yellow;
+                font-size: 14px;
+
+                .course-title{
+                    font-size: 18px;
+                   
+                }
+
+                .price-group{
+                    overflow: hidden;
+                    margin-top: 20px;
+
+                    .share-group{
+                        float: left;
+                        color: $metaColorDark;
+                        //background-color: green;
+
+                        a{
+                            color: $metaColorDark;
+
+                            i{
+                                font-size: 18px;
+                            }
+                        }
+                    }
+
+                    .buy-group{
+                        float: right;
+                        font-weight: 500;
+                        .free{
+                            color: $freeColor;
+                        }
+                        .pay{
+                            color: $payColor;
+                        }
+
+                        .buy-btn{
+                            color: $contentColor;
+                            background-color: $darkBC;
+                            height: 30px;
+                            width: 100px;
+                            text-align: center;
+                            border-radius: 5px;
+                            display: inline-block;
+                            line-height: 30px;
+                            margin-left: 20px;
+                        }
+                    }
+                }
+            }
+
+            .video-group{
+                height: 500px;
+                width: 100%;
+                background-color: pink;
+            }
+        }
+
+        .bottom-wrapper{
+            overflow: hidden;
+
+            .course-left{
+                float: left;
+                width: $mainBoxWidth;
+                .item-group{
+                    margin-top: 20px;
+                    background-color: #e7e7e7;
+                    padding: 20px;
+
+                    .item-title{
+                        font-size: 20px;
+                        border-left: 5px solid $borderColor;
+                        padding-left: 15px;
+                    }
+
+                    .teacher-profile{
+                        overflow: hidden;
+                        margin-top: 20px;
+
+                        .avatar-group{
+                            float: left;
+                            //background-color: green;
+                            width: 30px;
+                            height: 30px;
+                            
+                            .avatar{
+                                width: 100%;
+                                border-radius: 50%;
+                            }
+                        }
+
+                        .teacher-info{
+                            p{
+                                line-height: 30px;
+                                padding-left: 15px;
+                                //background-color: yellow;
+                                float: left;
+                                color: $metaColorDark;
+                            }
+                            
+                        }
+                    }
+
+                    .item-content{
+                        margin-top: 15px;
+                        color: $contentColorDark;
+                        line-height: 1.8;
+                    }
+                }
+            }
+
+            .recommend-right{
+                float: right;
+                width: $sidebarWidth;
+                background-color: #e7e7e7;
+                padding: 20px;
+                box-sizing: border-box;
+                margin-top: 20px;
+
+                .course-list{
+                    li{
+                        border-bottom: 1px solid $metaColor;
+                        overflow: hidden;
+                        font-size: 14px;
+                        padding: 20px 0;
+                        color: $contentColorDark;
+
+                        .info{
+                            float: left;
+                            width: 130px;
+                            height: 67px;
+                            position: relative;
+                            //background-color: yellow;
+
+                            .teacher{
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                            }
+                        }
+                        
+                        .thumbnail{
+                            float: right;
+                            width: 100px;
+                            height: 67px;
+
+                            img{
+                                width: 100%;
+                               
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

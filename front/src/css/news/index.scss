@@ -1,0 +1,145 @@
+@import "../common/init.scss";
+@import "../common/constants.scss";
+@import "../common/header.scss";
+@import "../common/body.scss";
+@import "../common/footer.scss";
+@import "../common/news_list.scss";
+
+body{
+    background-color: $darkBC;
+}
+
+//banner css//
+.main{
+    .wrapper{
+        //banner
+        .banner-group{
+            $bannerWidth: $pageWidth;
+            $bannerHeight: 350px;
+
+            width: $bannerWidth;
+            height: $bannerHeight;
+            position: relative;
+
+            .banner-ul{
+                overflow: hidden;
+                position: absolute;
+                left: 0;
+
+                li{
+                    float: left;
+                    width: $bannerWidth;
+                    height: $bannerHeight;
+                }
+            }
+
+            .arrow{
+                display: inline-block;
+                height: 35px;
+                width: 28px;
+                position: absolute;
+                top: ($bannerHeight - 35)/2;
+                display: none;
+
+                i{
+                    color: #f5f5f7;
+                    font-size: 28px;
+                    line-height: 35px;
+                    cursor: pointer;
+                }
+            }
+
+            .left-arrow{
+                left: 20px;
+            }
+
+            .right-arrow{
+                right: 20px;
+            }
+
+            .page-control-group{
+                position: absolute;
+                bottom: 20px;
+                left: 0;
+                right: 0;
+
+                .page-control{
+                    margin: 0 auto;
+                    overflow: hidden;
+                    
+                    li{
+                        float: left;
+                        height: 12px;
+                        width: 12px;
+                        box-sizing: border-box;
+                        border: 2px solid #f5f5f7;
+                        border-radius: 50%;
+                        margin: 0 8px;
+                        cursor: pointer;
+
+                        &.active{
+                            background-color: #f5f5f7;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//main container css
+.main{
+    .wrapper{
+        .main-content-wrapper{
+            .list-tab{
+                height: 30px;
+                overflow: hidden;
+                border-bottom: 1px solid $borderColor;
+                //border-left: none;
+                //border-right: none;
+
+                li{
+                    float: left;
+                    //background-color: black;
+                    padding: 0 10px;
+                    line-height: 30px;
+                    font-size: 16px;
+
+                    a{
+                        color: #aaaaaa;
+                        display: inline-block;  
+                        //background-color: pink;
+                    }
+
+                    &.active{
+                        a{
+                            color: white;
+                        }
+                    }
+                }
+            }
+
+            .list-group{
+                @include news_list;
+            }
+
+            .load-more-group{
+                //background-color: #fff;
+                padding: 20px 0;
+                text-align: center;
+
+                .load-more{
+                    font-size: 14px;
+                    height: 40px;
+                    width: 300px;
+                    cursor: pointer;
+                    background-color: #1d1d1d;
+                    border: none;
+                    outline: none;
+                    color: $contentColor;
+                    
+                }
+            }
+        }
+    }
+}
